@@ -29,7 +29,7 @@ if (process.argv.length > 3) {
 	da = new DA(process.argv[2], process.argv[3]);
 	da.grabToken();
 
-	var server = app.listen(3000, function() {
+	var server = app.listen(8004, '127.0.0.1', function() {
 		var host = server.address().address,
 			port = server.address().port;
 
