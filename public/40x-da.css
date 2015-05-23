@@ -1,0 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Special+Elite);
+body {
+  background: #000000;
+}
+.da40x {
+  background-position: 50% 50%;
+  background-size: cover;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.da40x h1,
+.da40x p {
+  color: black;
+  font-family: 'Special Elite', cursive;
+  font-size: 3em;
+  opacity: 0.9;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  text-shadow: 3px 3px 0 #ffffff, -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+  transform: translate(-50%, -50%);
+  -webkit-text-stroke: 1px #ffffff;
+}
+.da40x p {
+  font-size: 0.8em;
+  opacity: 0.7;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+  top: 25%;
+}
+.da40x a {
+  background: #000;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.8em;
+  color: #fff;
+  opacity: 0.3;
+  padding: 2px 5px;
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  text-decoration: none;
+  transform: translate(-50%, 0);
+  transition: .5s;
+}
+.da40x a em {
+  color: inherit;
+  transition: inherit;
+}
+.da40x a .thumb {
+  background: #000;
+  box-shadow: 0 0 10px #000;
+  padding: 3px;
+  opacity: 1;
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, 0);
+  transition: .5s;
+  z-index: 0;
+}
+.da40x a .thumb img {
+  display: block;
+  height: 200px;
+}
+.da40x a:hover {
+  opacity: 1;
+}
+.da40x a:hover em {
+  color: #5FAC75;
+}
+.da40x a:hover .thumb {
+  top: -210px;
+}
