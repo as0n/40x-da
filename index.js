@@ -3,7 +3,7 @@ var express = require('express'),
 	DA = require('./da');
 
 if (process.argv.length < 4) {
-	console.log('DA application credentials missing. Exiting.');
+	debug('DA application credentials missing. Exiting.');
 	return;
 }
 
@@ -18,7 +18,6 @@ var app = express(),
 		'502': 'Gateway is bad :('
 	};
 
-da.grabToken();
 app.set('views', './views')
 app.set('view engine', 'jade');
 
@@ -43,10 +42,16 @@ app.use(function (req, res, next) {
 	});
 });
 
-var server = app.listen(8004, '127.0.0.1', function() {
-	var host = server.address().address,
-		port = server.address().port;
+da.grabToken(function(err) {
+	if (err) {
+		return debug('Failed client authentification. Exiting');
+	}
 
-	// We're ready
-	debug('Listening on %s:%s', host, port);
+	var server = app.listen(8004, '127.0.0.1', function() {
+		var host = server.address().address,
+			port = server.address().port;
+
+		// We're ready
+		debug('Listening on %s:%s', host, port);
+	});
 });
