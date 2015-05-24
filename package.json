@@ -17,7 +17,8 @@
   "homepage": "https://github.com/as0n/40x-da#readme",
   "dependencies": {
     "express": "^4.12.4",
-    "request": "^2.55.0"
+    "request": "^2.55.0",
+    "jade": "^1.9.2"
   },
   "devDependencies": {
     "less": "^2.5.1"

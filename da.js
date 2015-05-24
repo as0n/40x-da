@@ -46,5 +46,22 @@ DA.prototype.getDailies = function(cb) {
 		return cb(err, body);
 	});
 };
+DA.prototype.getRandomDaily = function(cb){
+	this.getDailies(function(err, data) {
+		var r;
+
+		while (true) {
+			r = Math.floor(Math.random()*data.results.length);
+			if (data.results[r].content) {
+				return cb({
+					src : data.results[r].content.src,
+					url: data.results[r].url,
+					title: data.results[r].title,
+					author: data.results[r].author.username
+				});
+			}
+		}
+	});
+};
 
 module.exports = DA;
