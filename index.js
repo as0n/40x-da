@@ -10,9 +10,12 @@ if (process.argv.length < 4) {
 var app = express(),
 	da = new DA(process.argv[2], process.argv[3]),
 	messages = {
-		'403': 'Nothing here :(',
+		'400': 'Bad request',
+		'401': 'Unauthorized',
+		'403': 'Nothing here !',
 		'404': 'Page not found :(',
-		'500': 'Whooops !'
+		'500': 'Whooops !',
+		'502': 'Gateway is bad :('
 	};
 
 da.grabToken();
