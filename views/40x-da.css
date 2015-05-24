@@ -34,8 +34,8 @@ body {
   background: #000;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.8em;
-  color: #fff;
-  opacity: 0.3;
+  color: #bbb;
+  opacity: 0.4;
   padding: 2px 5px;
   position: absolute;
   left: 50%;
@@ -44,8 +44,16 @@ body {
   transform: translate(-50%, 0);
   transition: .5s;
 }
+.da40x a.gh {
+  bottom: 0;
+  left: unset;
+  opacity: 0.2;
+  right: 0;
+  transform: none;
+}
 .da40x a em {
   color: inherit;
+  margin-right: 1px;
   transition: inherit;
 }
 .da40x a .thumb {
