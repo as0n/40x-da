@@ -1,6 +1,6 @@
 {
   "name": "40x-da-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Beautiful 40x error pages showing DA's daily deviations.",
   "main": "index.js",
   "repository": {
