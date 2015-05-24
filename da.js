@@ -1,4 +1,6 @@
-var request = require('request');
+var request = require('request'),
+	tokenDebug = require('debug')('da:token'),
+	dailiesDbg = require('debug')('da:dailies');
 
 function DA(client_id, client_secret) {
 	this.client_id = client_id;
@@ -23,8 +25,11 @@ DA.prototype.grabToken = function() {
 		},
 		json: true
 	}, function(err, res, body) {
+		if (err) return tokenDebug('Got error while fetching token : %s', err);
+		if (body['error']) return tokenDebug('DeviantArt returned an error while fetching token : %s\n%s', body['error'], body['error_description']);
+
 		da.token = body['access_token'];
-		console.log('DA : got API token : %s', da.token);
+		tokenDebug('Got token : %s', da.token);
 	});
 };
 DA.prototype.getDailies = function(cb) {
@@ -40,14 +45,27 @@ DA.prototype.getDailies = function(cb) {
 		},
 		json: true
 	}, function(err, resp, body) {
+		if (err) {
+			dailiesDbg('Error while fetching DD : %s', err);
+			return cb(err);
+		}
+		if (body['error']) {
+			dailiesDbg('DeviantArt returned an error while fetching dd : %s\n%s', body['error'], body['error_description']);
+			return cb(body['error']);
+		}
+
 		da.dailies.cache = body;
 		da.dailies.lastRequest = new Date();
-		console.log("DA : refreshed dailies.")
+		dailiesDbg("Refreshed dailies.");
 		return cb(err, body);
 	});
 };
 DA.prototype.getRandomDaily = function(cb){
 	this.getDailies(function(err, data) {
+		if (err) {
+			dailiesDbg('Error while getting DD : %s', err);
+			return cb();
+		}
 		var r;
 
 		while (true) {

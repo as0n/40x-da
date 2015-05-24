@@ -1,4 +1,5 @@
 var express = require('express'),
+	debug = require('debug')('40x'),
 	DA = require('./da');
 
 if (process.argv.length < 4) {
@@ -33,5 +34,5 @@ var server = app.listen(8004, '127.0.0.1', function() {
 		port = server.address().port;
 
 	// We're ready
-	console.log('40XDA listening on %s:%s', host, port);
+	debug('Listening on %s:%s', host, port);
 });
