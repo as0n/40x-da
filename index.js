@@ -22,12 +22,23 @@ da.grabToken();
 app.set('views', './views')
 app.set('view engine', 'jade');
 
+app.get('/', function(req, res, next) {
+	req.errCode = 404;
+	return next();
+});
 app.get('/:code', function(req, res, next) {
+	req.errCode = (req.params.code) || 404;
+	return next();
+});
+app.use(function (req, res, next) {
 	da.getRandomDaily(function(data) {
-		return res.render('page', {
-			code : req.params.code,
-			message : req.query.message || messages[req.params.code] || 'Error',
+		res.render('page', {
+			code : req.errCode,
+			message : req.query.message || messages[req.errCode] || 'Error',
 			img : data
+		}, function(err, body) {
+			//debug('Returned error %s from %s', req.errCode, req.originalUrl);
+			return res.status(req.errCode).send(body);
 		});
 	});
 });
