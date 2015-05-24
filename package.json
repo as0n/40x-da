@@ -1,0 +1,27 @@
+{
+  "name": "40x-da-server",
+  "version": "0.1.0",
+  "description": "Beautiful 40x error pages showing DA's daily deviations.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/as0n/40x-da.git"
+  },
+  "keywords": [
+    "deviantart",
+    "error",
+    "404",
+    "403"
+  ],
+  "author": "as0n",
+  "homepage": "https://github.com/as0n/40x-da#readme",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "express": "^4.12.4",
+    "jade": "^1.9.2",
+    "request": "^2.55.0"
+  },
+  "devDependencies": {
+    "less": "^2.5.1"
+  }
+}

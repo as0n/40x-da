@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Error
+		style
+			include 40x-da.css
+	body
+		.da40x(style='background-image:url("'+img.src+'")')
+			p.code= 'E '+code
+			h1= message
+			a(target='_blank', href=img.url)
+				!= '<em>'+img.title+'</em> by '+img.author
+				.thumb
+					img(src=img.src, alt=img.title)
+			a.gh(target='_blank', href='https://github.com/as0n/40x-da')
+				em= "40x-da"
+				= " on GitHub"
