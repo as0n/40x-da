@@ -1,7 +1,7 @@
 # 40x-da
 Beautiful 40x error pages showing [DeviantArt's daily deviations](https://www.deviantart.com/dailydeviations/).
 
-![40x-da example page](example.png)
+![40x-da example page](doc/example.png)
 _This example shows [Thoughts Yavannas](http://kimberly80.deviantart.com/art/Thoughts-Yavannas-534648246) by [kimberly80](http://kimberly80.deviantart.com/)._
 
 __40x-da__ works as a separate web-server delivering html content for http error pages (400, 401, 402, hence `40x`and even 50x ...). It is not meant to be publicly available on the internet (why would you give you user access to a bunch of 40x and 50x pages ?).
