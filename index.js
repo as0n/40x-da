@@ -42,6 +42,8 @@ function updateDailyDeviations() {
 	});
 }
 
+app.set('port', process.env.PORT || 8004);
+
 app.set('views', './views')
 app.set('view engine', 'jade');
 
@@ -73,7 +75,7 @@ dAmn.public(parseInt(process.argv[2]), process.argv[3], function(err, daClient) 
 	updateDailyDeviations();
 	setInterval(updateDailyDeviations, 60*60*1000);
 
-	var server = app.listen(8004, '127.0.0.1', function() {
+	var server = app.listen(app.get('port'), '127.0.0.1', function() {
 		var host = server.address().address,
 			port = server.address().port;
 

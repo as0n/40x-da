@@ -3,6 +3,9 @@
   "version": "0.1.1",
   "description": "Beautiful 40x error pages showing DA's daily deviations.",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/as0n/40x-da.git"
