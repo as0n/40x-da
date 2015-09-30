@@ -1,6 +1,6 @@
 {
   "name": "40xda",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Beautiful 40x error pages showing DA's daily deviations.",
   "main": "index.js",
   "scripts": {

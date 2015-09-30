@@ -19,7 +19,7 @@ Clone this repo and install npm dependencies :
 
 Run the server :
 
-	$ node index.js YOUR_DA_CLIENT_ID YOUR_DA_CLIENT_SECRET
+	$ DA_CLIENT_ID=0123 DA_CLIENT_SECRET=my_secret npm start
 
 (maybe you should demonize the process using something like [forever](https://www.npmjs.com/package/forever)).
 
@@ -45,10 +45,12 @@ For instance on nginx you could do something like :
 
  - Every http code is valid : you can GET any url like `http://40x-da-server/<status>` as long as `status` is a numeric value.
  - Custom error messages : message can be set via query parameters like so : `http://40x-da-server/404?message=These are not the droids you are looking for`.
+ - Listening port is customizable via the `PORT` environment variable.
+ - 40xda is compatible with heroku !
 
 ## Todo
 
- - Add listening port parameter (either via `process.env` or `process.argv`);
- - Add message configuration file to customize displayed messages.
+ [X] Add listening port parameter (either via `process.env` or `process.argv`);
+ [ ] Add message configuration file to customize displayed messages.
 
 __Contributions welcomed !__

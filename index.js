@@ -3,11 +3,6 @@ var express = require('express'),
 	debug = require('debug')('40x'),
 	dAmn = require('damn');
 
-if (process.argv.length < 4) {
-	debug('DA application credentials missing. Exiting.');
-	return;
-}
-
 var app = express(),
 	messages = {
 		'400': 'Bad request',
@@ -19,6 +14,15 @@ var app = express(),
 	},
 	dailyDeviations = [],
 	da;
+
+app.set('port', process.env.PORT || 8004);
+app.set('da_client_id', parseInt(process.env.DA_CLIENT_ID));
+app.set('da_client_secret', process.env.DA_CLIENT_SECRET);
+
+if (!app.get('da_client_id') || !app.get('da_client_secret')) {
+	debug('DA application credentials missing. Exiting.');
+	return;
+}
 
 function updateDailyDeviations() {
 	debug('Refreshing deviations ...');
@@ -42,7 +46,6 @@ function updateDailyDeviations() {
 	});
 }
 
-app.set('port', process.env.PORT || 8004);
 
 app.set('views', './views')
 app.set('view engine', 'jade');
@@ -69,13 +72,13 @@ app.use(function (req, res, next) {
 	});
 });
 
-dAmn.public(parseInt(process.argv[2]), process.argv[3], function(err, daClient) {
+dAmn.public(app.get('da_client_id'), app.get('da_client_secret'), function(err, daClient) {
 	da = daClient;
 
 	updateDailyDeviations();
 	setInterval(updateDailyDeviations, 60*60*1000);
 
-	var server = app.listen(app.get('port'), '127.0.0.1', function() {
+	var server = app.listen(app.get('port'), function() {
 		var host = server.address().address,
 			port = server.address().port;
 
