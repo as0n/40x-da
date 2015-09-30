@@ -50,7 +50,8 @@ For instance on nginx you could do something like :
 
 ## Todo
 
- [X] Add listening port parameter (either via `process.env` or `process.argv`);
- [ ] Add message configuration file to customize displayed messages.
+ - [X] Add listening port parameter (either via `process.env` or `process.argv`);
+ - [ ] Add message configuration file to customize displayed messages.
+ - [ ] Mature content on/off switch (default is off, use an env variable)
 
 __Contributions welcomed !__
