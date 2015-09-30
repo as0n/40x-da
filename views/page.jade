@@ -2,7 +2,7 @@ doctype html
 html
 	head
 		meta(charset='utf-8')
-		title Error
+		title= 'Error '+code
 		style
 			include 40x-da.css
 	body
@@ -12,7 +12,7 @@ html
 			a(target='_blank', href=img.url)
 				!= '<em>'+img.title+'</em> by '+img.author
 				.thumb
-					img(src=img.src, alt=img.title)
+					img(src=img.preview, alt=img.title)
 			a.gh(target='_blank', href='https://github.com/as0n/40x-da')
 				em= "40x-da"
 				= " on GitHub"
