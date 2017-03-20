@@ -4,7 +4,9 @@
   "description": "Beautiful 40x error pages showing DA's daily deviations.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,11 @@
     "debug": "^2.2.0",
     "express": "^4.13.3",
     "jade": "^1.11.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.25.2"
   },
   "devDependencies": {
     "less": "^2.5.1"
-  }
+  },
+  "snyk": true
 }
